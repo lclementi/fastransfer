@@ -14,7 +14,9 @@
 #include <unistd.h>
 #include <errno.h>
 
-#define SPLICE_SIZE  8192 //671862
+#define SPLICE_SIZE  65536 //default pipe duffer size in linux
+
+//8192 //671862
 
 
 ssize_t send_all(int socket, const uint8_t *buffer, size_t length, int flag);
