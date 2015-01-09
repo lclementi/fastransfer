@@ -1,12 +1,23 @@
+# 
+# Luca Clementi luca.clementi@gmail.com
+#
+# recv.c and send.c copied from 
+# https://github.com/matildah/fastcat
+#
+#
 
-all: recv send 
+CFLAGS += -Wextra -Wall -ggdb 
 
-recv: recv.c net.c
-	gcc -Wall -ggdb -o recv recv.c net.c
+SRCS = $(wildcard *.c)
+INCLUDE =  $(wildcard *.h)
+TARGETS = send recv
 
-send: send.c net.c
-	gcc -Wall -ggdb -o send send.c net.c
+all: $(TARGETS)
+
+$(TARGETS): $(SRC) $(INCLUDE)
+	$(CC) $(CFLAGS) -o $@ $@.c net.c
 
 clean:
 	rm -f send recv
+
 
