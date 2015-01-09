@@ -86,7 +86,7 @@ int main(int argc, char* argv[])
     }
 
     while (1) {
-        rval = do_splice(infd, outfd, pipefd, SPLICE_SIZE); //2048);
+        rval = do_splice(infd, outfd, pipefd);
         
         if (rval == -1) {
             perror("splice");
