@@ -15,7 +15,7 @@ ssize_t do_splice(int fd_in, int fd_out, int pipefd[2]) {
 		nr = splice(fd_in, NULL, pipefd[1], NULL, SPLICE_SIZE, SPLICE_FLAGS);
 		if (nr <= 0)
 			break;
-#if DEBUG
+#ifdef DEBUG
 		printf("read %zu\n", nr);
 		fflush(stdout);
 #endif
@@ -26,7 +26,7 @@ ssize_t do_splice(int fd_in, int fd_out, int pipefd[2]) {
 				perror("couldn't write bytes");
 				break;
 			}
-#if DEBUG
+#ifdef DEBUG
 			printf("write %zu\n", ret);
 			fflush(stdout);
 #endif
