@@ -14,7 +14,7 @@ TARGETS = send recv
 
 all: $(TARGETS)
 
-$(TARGETS): $(SRC) $(INCLUDE)
+$(TARGETS): $(SRCS) $(INCLUDE)
 	$(CC) $(CFLAGS) -o $@ $@.c net.c
 
 clean:
