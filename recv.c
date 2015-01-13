@@ -85,6 +85,8 @@ int main(int argc, char* argv[])
         exit(1);
     }
 
+    set_pipeopt(pipefd);
+
     while (1) {
         rval = do_splice(infd, outfd, pipefd);
         
